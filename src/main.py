@@ -43,7 +43,7 @@ def train_fn(model, data_loader, optimizer, scheduler, i, device_ids):
 
     scheduler.step()
 
-    return fin_loss / len(data_loader)
+    return fin_loss / len(data_loader), optimizer.param_groups[0]["lr"]
 
 
 def eval_fn(model, data_loader, i):
@@ -73,6 +73,11 @@ def train(local_world_size, local_rank):
         f"[{os.getpid()}] rank = {dist.get_rank()}, "
         + f"world_size = {dist.get_world_size()}, n = {n}, device_ids = {device_ids}"
     )
+
+    # wandb init
+    if local_rank==0:
+        wandb.init(project="shopee")
+
     # train data
     labelencoder = LabelEncoder()
     train_df = pd.read_csv(Config["TRAIN_CSV_PATH"])
@@ -87,8 +92,11 @@ def train(local_world_size, local_rank):
     train_dataset = Shopee_Dataset(
         TRAIN_IMG_PATHS, TRAIN_LABELS, augmentations=Config["TRAIN_AUG"]
     )
+
+    sampler = None
+    sampler = torch.utils.data.distributed.DistributedSampler(train_dataset)
     train_dataloader = torch.utils.data.DataLoader(
-        train_dataset, batch_size=Config["BS"]
+        train_dataset, batch_size=Config["BS"], sampler=sampler, shuffle=(sampler is None)
     )
 
     # model
@@ -104,9 +112,11 @@ def train(local_world_size, local_rank):
     scheduler = ShopeeScheduler(optimizer, **Config["SCHEDULER_PARAMS"])
 
     for epoch in range(Config["EPOCHS"]):
-        avg_loss_train = train_fn(
+        avg_loss_train, lr = train_fn(
             ddp_model, train_dataloader, optimizer, scheduler, epoch, device_ids
         )
+        if local_rank==0:
+            wandb.log({'train_loss': avg_loss_train, 'epoch': epoch, 'lr': lr})
 
 
 def spmd_main(local_world_size, local_rank):
