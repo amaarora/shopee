@@ -10,7 +10,7 @@ Config = dict(
     TRAIN_CSV_PATH="../data/train.csv",
     DEVICE="cuda",
     MODEL="tf_efficientnet_b5",
-    EPOCHS=3,
+    EPOCHS=10,
     SCHEDULER_PARAMS={
         "lr_start": 1e-5,
         "lr_max": 1e-5,

@@ -75,8 +75,7 @@ def train(local_world_size, local_rank):
     )
 
     # wandb init
-    if local_rank==0:
-        wandb.init(project="shopee")
+    wandb.init(project="shopee", config=Config)
 
     # train data
     labelencoder = LabelEncoder()
@@ -112,11 +111,13 @@ def train(local_world_size, local_rank):
     scheduler = ShopeeScheduler(optimizer, **Config["SCHEDULER_PARAMS"])
 
     for epoch in range(Config["EPOCHS"]):
+        if hasattr(train_dataloader.sampler, 'set_epoch'):
+            train_dataloader.sampler.set_epoch(epoch)
+
         avg_loss_train, lr = train_fn(
             ddp_model, train_dataloader, optimizer, scheduler, epoch, device_ids
         )
-        if local_rank==0:
-            wandb.log({'train_loss': avg_loss_train, 'epoch': epoch, 'lr': lr})
+        wandb.log({'train_loss': avg_loss_train, 'epoch': epoch, 'lr': lr})
 
 
 def spmd_main(local_world_size, local_rank):
