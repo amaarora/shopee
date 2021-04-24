@@ -19,14 +19,14 @@ from tqdm import tqdm
 logging.getLogger().setLevel(logging.INFO)
 
 
-def train_fn(model, data_loader, optimizer, scheduler, i, rank):
+def train_fn(model, data_loader, optimizer, scheduler, i):
     model.train()
     fin_loss = 0.0
     tk = tqdm(data_loader, desc="Epoch" + " [TRAIN] " + str(i + 1))
 
     for t, data in enumerate(tk):
         for k, v in data.items():
-            data[k] = v.to(rank)
+            data[k] = v.to(Config["DEVICE"])
         optimizer.zero_grad()
         out = model(**data)
         loss = nn.CrossEntropyLoss()(out, data["label"])
@@ -46,7 +46,7 @@ def train_fn(model, data_loader, optimizer, scheduler, i, rank):
     return fin_loss / len(data_loader)
 
 
-def eval_fn(model, data_loader, i, rank):
+def eval_fn(model, data_loader, i):
     model.eval()
     fin_loss = 0.0
     tk = tqdm(data_loader, desc="Epoch" + " [VALID] " + str(i + 1))
@@ -63,11 +63,7 @@ def eval_fn(model, data_loader, i, rank):
         return fin_loss / len(data_loader)
 
 
-def train(rank, world_size):
-    if rank == 0:
-        wandb.init(project="shopee")
-    dist.init_process_group("gloo", rank=rank, world_size=world_size)
-
+def train():
     # train data
     labelencoder = LabelEncoder()
     train_df = pd.read_csv(Config["TRAIN_CSV_PATH"])
@@ -89,27 +85,17 @@ def train(rank, world_size):
     # model
     model = Shopee_Model(Config["MODEL"], num_class=NUM_CLASS, pretrained=True)
     model.backbone.reset_classifier(0)
-    model = model.to(rank)
-    ddp_model = DDP(model, device_ids=[rank])
+    model = model.to(Config["DEVICE"])
 
     # optimizer & scheduler
     optimizer = torch.optim.Adam(
-        ddp_model.parameters(), lr=Config["SCHEDULER_PARAMS"]["lr_start"]
+        model.parameters(), lr=Config["SCHEDULER_PARAMS"]["lr_start"]
     )
     scheduler = ShopeeScheduler(optimizer, **Config["SCHEDULER_PARAMS"])
 
     for epoch in range(Config["EPOCHS"]):
-        avg_loss_train = train_fn(
-            ddp_model, train_dataloader, optimizer, scheduler, epoch, rank
-        )
-        if rank == 0:
-            wandb.log({"train_loss": avg_loss_train})
-
-
-def main():
-    world_size = 2
-    mp.spawn(train, args=(world_size,), nprocs=world_size, join=True)
+        avg_loss_train = train_fn(model, train_dataloader, optimizer, scheduler, epoch)
 
 
 if __name__ == "__main__":
-    main()
+    train()
