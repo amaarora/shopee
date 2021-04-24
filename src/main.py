@@ -118,7 +118,10 @@ def train(local_world_size, local_rank):
             ddp_model, train_dataloader, optimizer, scheduler, epoch, device_ids
         )
         wandb.log({'train_loss': avg_loss_train, 'epoch': epoch, 'lr': lr})
-
+        torch.save(
+            model.state_dict(), 
+            f"../data/{Config['MODEL']}_{Config['IMG_SIZE']}_{epoch}_{avg_loss_train}"
+            )
 
 def spmd_main(local_world_size, local_rank):
     # These are the parameters used to initialize the process group

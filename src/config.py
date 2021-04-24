@@ -19,6 +19,7 @@ Config = dict(
         "lr_sus_ep": 0,
         "lr_decay": 0.8,
     },
+    IMG_SIZE=IMG_SIZE,
     BS=8,
     TRAIN_AUG=albumentations.Compose(
         [
