@@ -1,0 +1,77 @@
+2021-04-24 09:40:14,687 INFO    MainThread:6815 [internal.py:wandb_internal():91] W&B internal server running at pid: 6815, started at: 2021-04-24 09:40:14.687266
+2021-04-24 09:40:14,689 DEBUG   HandlerThread:6815 [handler.py:handle_request():120] handle_request: check_version
+2021-04-24 09:40:14,690 INFO    WriterThread:6815 [datastore.py:open_for_write():77] open: /home/arora/kaggle/shopee/src/wandb/run-20210424_094014-12ltk2ob/run-12ltk2ob.wandb
+2021-04-24 09:40:14,691 DEBUG   SenderThread:6815 [sender.py:send():160] send: header
+2021-04-24 09:40:14,691 DEBUG   SenderThread:6815 [sender.py:send():160] send: request
+2021-04-24 09:40:14,691 DEBUG   SenderThread:6815 [sender.py:send_request():169] send_request: check_version
+2021-04-24 09:40:14,754 DEBUG   SenderThread:6815 [sender.py:send():160] send: run
+2021-04-24 09:40:14,755 DEBUG   SenderThread:6815 [git.py:repo():33] git repository is invalid
+2021-04-24 09:40:14,805 INFO    SenderThread:6815 [sender.py:_start_run_threads():654] run started: 12ltk2ob with start time 1619257214
+2021-04-24 09:40:14,805 DEBUG   SenderThread:6815 [sender.py:send():160] send: summary
+2021-04-24 09:40:14,806 INFO    SenderThread:6815 [sender.py:_save_file():781] saving file wandb-summary.json with policy end
+2021-04-24 09:40:14,806 DEBUG   HandlerThread:6815 [handler.py:handle_request():120] handle_request: run_start
+2021-04-24 09:40:14,913 DEBUG   HandlerThread:6815 [meta.py:__init__():39] meta init
+2021-04-24 09:40:14,913 DEBUG   HandlerThread:6815 [meta.py:__init__():53] meta init done
+2021-04-24 09:40:14,913 DEBUG   HandlerThread:6815 [meta.py:probe():210] probe
+2021-04-24 09:40:14,919 DEBUG   HandlerThread:6815 [git.py:repo():33] git repository is invalid
+2021-04-24 09:40:14,919 DEBUG   HandlerThread:6815 [meta.py:_save_pip():57] save pip
+2021-04-24 09:40:14,919 DEBUG   HandlerThread:6815 [meta.py:_save_pip():71] save pip done
+2021-04-24 09:40:14,919 DEBUG   HandlerThread:6815 [meta.py:_save_conda():78] save conda
+2021-04-24 09:40:16,698 WARNING MainThread:6815 [internal.py:wandb_internal():146] Internal process interrupt: 1
+2021-04-24 09:40:16,808 DEBUG   HandlerThread:6815 [meta.py:_save_conda():86] save conda done
+2021-04-24 09:40:16,808 DEBUG   HandlerThread:6815 [meta.py:probe():252] probe done
+2021-04-24 09:40:16,812 DEBUG   SenderThread:6815 [sender.py:send():160] send: files
+2021-04-24 09:40:16,812 INFO    SenderThread:6815 [sender.py:_save_file():781] saving file wandb-metadata.json with policy now
+2021-04-24 09:40:43,602 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:41:14,663 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:41:45,711 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:42:16,432 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:42:47,514 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:43:18,560 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:43:49,719 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:44:20,878 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:44:51,929 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:45:22,804 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:45:53,997 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:46:25,165 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:46:56,377 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:47:27,523 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:47:58,701 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:48:29,913 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:49:00,997 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:49:32,106 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:50:03,239 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:50:34,324 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:51:05,110 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:51:36,240 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:52:07,358 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:52:38,521 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:53:09,650 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:53:40,900 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:54:12,051 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:54:43,226 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:55:14,381 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:55:45,529 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:56:16,719 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:56:47,905 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:57:18,944 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:57:50,014 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:58:21,328 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:58:52,483 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:59:23,664 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 09:59:54,804 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 10:00:25,975 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 10:00:57,123 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 10:01:28,308 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 10:01:59,473 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 10:02:30,330 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 10:03:00,998 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 10:03:31,813 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 10:04:02,690 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 10:04:33,532 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 10:05:04,681 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 10:05:35,807 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 10:06:07,033 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 10:06:38,138 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 10:07:09,145 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats
+2021-04-24 10:07:40,191 DEBUG   SenderThread:6815 [sender.py:send():160] send: stats

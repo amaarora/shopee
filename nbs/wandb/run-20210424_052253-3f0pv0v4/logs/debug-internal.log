@@ -1,0 +1,44 @@
+2021-04-24 05:22:57,173 INFO    MainThread:9372 [internal.py:wandb_internal():91] W&B internal server running at pid: 9372, started at: 2021-04-24 05:22:57.172873
+2021-04-24 05:22:57,175 DEBUG   HandlerThread:9372 [handler.py:handle_request():120] handle_request: check_version
+2021-04-24 05:22:57,175 INFO    WriterThread:9372 [datastore.py:open_for_write():77] open: /home/arora/kaggle/shopee/nbs/wandb/run-20210424_052253-3f0pv0v4/run-3f0pv0v4.wandb
+2021-04-24 05:22:57,176 DEBUG   SenderThread:9372 [sender.py:send():160] send: header
+2021-04-24 05:22:57,177 DEBUG   SenderThread:9372 [sender.py:send():160] send: request
+2021-04-24 05:22:57,177 DEBUG   SenderThread:9372 [sender.py:send_request():169] send_request: check_version
+2021-04-24 05:22:57,241 DEBUG   SenderThread:9372 [sender.py:send():160] send: run
+2021-04-24 05:22:57,243 DEBUG   SenderThread:9372 [git.py:repo():33] git repository is invalid
+2021-04-24 05:22:57,305 INFO    SenderThread:9372 [sender.py:_start_run_threads():654] run started: 3f0pv0v4 with start time 1619241776
+2021-04-24 05:22:57,305 DEBUG   SenderThread:9372 [sender.py:send():160] send: summary
+2021-04-24 05:22:57,305 INFO    SenderThread:9372 [sender.py:_save_file():781] saving file wandb-summary.json with policy end
+2021-04-24 05:22:57,305 DEBUG   HandlerThread:9372 [handler.py:handle_request():120] handle_request: run_start
+2021-04-24 05:22:57,309 DEBUG   HandlerThread:9372 [meta.py:__init__():39] meta init
+2021-04-24 05:22:57,309 DEBUG   HandlerThread:9372 [meta.py:__init__():53] meta init done
+2021-04-24 05:22:57,309 DEBUG   HandlerThread:9372 [meta.py:probe():210] probe
+2021-04-24 05:22:57,315 DEBUG   HandlerThread:9372 [git.py:repo():33] git repository is invalid
+2021-04-24 05:22:57,315 DEBUG   HandlerThread:9372 [meta.py:_save_pip():57] save pip
+2021-04-24 05:22:57,316 DEBUG   HandlerThread:9372 [meta.py:_save_pip():71] save pip done
+2021-04-24 05:22:57,316 DEBUG   HandlerThread:9372 [meta.py:_save_conda():78] save conda
+2021-04-24 05:22:57,320 ERROR   HandlerThread:9372 [meta.py:_save_conda():85] Error saving conda packages
+Traceback (most recent call last):
+  File "/home/arora/.local/lib/python3.7/site-packages/wandb/sdk/internal/meta.py", line 83, in _save_conda
+    subprocess.call(["conda", "env", "export"], stdout=f)
+  File "/opt/conda/envs/rapids-0.18/lib/python3.7/subprocess.py", line 339, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/opt/conda/envs/rapids-0.18/lib/python3.7/subprocess.py", line 800, in __init__
+    restore_signals, start_new_session)
+  File "/opt/conda/envs/rapids-0.18/lib/python3.7/subprocess.py", line 1551, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'conda': 'conda'
+2021-04-24 05:22:57,321 DEBUG   HandlerThread:9372 [meta.py:_save_conda():86] save conda done
+2021-04-24 05:22:57,321 DEBUG   HandlerThread:9372 [meta.py:probe():252] probe done
+2021-04-24 05:22:57,324 DEBUG   SenderThread:9372 [sender.py:send():160] send: files
+2021-04-24 05:22:57,324 INFO    SenderThread:9372 [sender.py:_save_file():781] saving file wandb-metadata.json with policy now
+2021-04-24 05:22:57,331 DEBUG   HandlerThread:9372 [handler.py:handle_request():120] handle_request: status
+2021-04-24 05:22:57,331 DEBUG   SenderThread:9372 [sender.py:send():160] send: request
+2021-04-24 05:22:57,331 DEBUG   SenderThread:9372 [sender.py:send_request():169] send_request: status
+2021-04-24 05:23:06,884 WARNING MainThread:9372 [internal.py:wandb_internal():146] Internal process interrupt: 1
+2021-04-24 05:23:14,893 WARNING MainThread:9372 [internal.py:is_dead():344] Internal process exiting, parent pid 8310 disappeared
+2021-04-24 05:23:14,893 ERROR   MainThread:9372 [internal.py:wandb_internal():142] Internal process shutdown.
+2021-04-24 05:23:15,380 INFO    SenderThread:9372 [sender.py:finish():884] shutting down sender
+2021-04-24 05:23:15,380 INFO    WriterThread:9372 [datastore.py:close():258] close: /home/arora/kaggle/shopee/nbs/wandb/run-20210424_052253-3f0pv0v4/run-3f0pv0v4.wandb
+2021-04-24 05:23:15,394 INFO    HandlerThread:9372 [handler.py:finish():624] shutting down handler
+2021-04-24 05:23:16,843 INFO    MainThread:9372 [internal.py:handle_exit():78] Internal process exited

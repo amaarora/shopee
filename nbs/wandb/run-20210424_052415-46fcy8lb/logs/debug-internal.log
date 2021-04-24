@@ -1,0 +1,285 @@
+2021-04-24 05:24:15,771 INFO    MainThread:10575 [internal.py:wandb_internal():91] W&B internal server running at pid: 10575, started at: 2021-04-24 05:24:15.771079
+2021-04-24 05:24:15,773 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: check_version
+2021-04-24 05:24:15,774 INFO    WriterThread:10575 [datastore.py:open_for_write():77] open: /home/arora/kaggle/shopee/nbs/wandb/run-20210424_052415-46fcy8lb/run-46fcy8lb.wandb
+2021-04-24 05:24:15,775 DEBUG   SenderThread:10575 [sender.py:send():160] send: header
+2021-04-24 05:24:15,775 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:15,775 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: check_version
+2021-04-24 05:24:15,849 DEBUG   SenderThread:10575 [sender.py:send():160] send: run
+2021-04-24 05:24:15,851 DEBUG   SenderThread:10575 [git.py:repo():33] git repository is invalid
+2021-04-24 05:24:15,950 INFO    SenderThread:10575 [sender.py:_start_run_threads():654] run started: 46fcy8lb with start time 1619241855
+2021-04-24 05:24:15,950 DEBUG   SenderThread:10575 [sender.py:send():160] send: summary
+2021-04-24 05:24:15,950 INFO    SenderThread:10575 [sender.py:_save_file():781] saving file wandb-summary.json with policy end
+2021-04-24 05:24:15,950 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: run_start
+2021-04-24 05:24:16,816 DEBUG   HandlerThread:10575 [meta.py:__init__():39] meta init
+2021-04-24 05:24:16,817 DEBUG   HandlerThread:10575 [meta.py:__init__():53] meta init done
+2021-04-24 05:24:16,817 DEBUG   HandlerThread:10575 [meta.py:probe():210] probe
+2021-04-24 05:24:16,823 DEBUG   HandlerThread:10575 [git.py:repo():33] git repository is invalid
+2021-04-24 05:24:16,823 DEBUG   HandlerThread:10575 [meta.py:_save_pip():57] save pip
+2021-04-24 05:24:16,823 DEBUG   HandlerThread:10575 [meta.py:_save_pip():71] save pip done
+2021-04-24 05:24:16,823 DEBUG   HandlerThread:10575 [meta.py:_save_conda():78] save conda
+2021-04-24 05:24:16,827 ERROR   HandlerThread:10575 [meta.py:_save_conda():85] Error saving conda packages
+Traceback (most recent call last):
+  File "/home/arora/.local/lib/python3.7/site-packages/wandb/sdk/internal/meta.py", line 83, in _save_conda
+    subprocess.call(["conda", "env", "export"], stdout=f)
+  File "/opt/conda/envs/rapids-0.18/lib/python3.7/subprocess.py", line 339, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/opt/conda/envs/rapids-0.18/lib/python3.7/subprocess.py", line 800, in __init__
+    restore_signals, start_new_session)
+  File "/opt/conda/envs/rapids-0.18/lib/python3.7/subprocess.py", line 1551, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'conda': 'conda'
+2021-04-24 05:24:16,828 DEBUG   HandlerThread:10575 [meta.py:_save_conda():86] save conda done
+2021-04-24 05:24:16,828 DEBUG   HandlerThread:10575 [meta.py:probe():252] probe done
+2021-04-24 05:24:16,833 DEBUG   SenderThread:10575 [sender.py:send():160] send: files
+2021-04-24 05:24:16,833 INFO    SenderThread:10575 [sender.py:_save_file():781] saving file wandb-metadata.json with policy now
+2021-04-24 05:24:16,840 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: status
+2021-04-24 05:24:16,840 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:16,840 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: status
+2021-04-24 05:24:16,845 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:16,845 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:16,855 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:16,855 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:16,878 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:16,965 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:16,965 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:17,107 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:17,107 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:17,107 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:17,153 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:17,154 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:17,218 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:17,218 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:17,218 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:17,218 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:17,230 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:17,230 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:17,231 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:17,231 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:17,239 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:17,239 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:17,240 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:17,240 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:17,249 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:17,250 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:17,250 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:17,251 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:17,251 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:17,252 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:18,921 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:18,921 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:18,965 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:18,966 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:18,969 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:21,078 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:21,078 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:21,089 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:21,102 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:21,102 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:21,107 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:21,107 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:21,113 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:21,114 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:21,114 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:21,117 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:21,117 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:21,128 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:21,128 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:21,129 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:21,494 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:21,494 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:21,541 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:21,541 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:21,542 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:21,542 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:21,556 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:21,556 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:21,557 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:21,557 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:21,570 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:21,571 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:21,571 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:21,571 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:21,582 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:21,582 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:21,582 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:21,583 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:21,583 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:21,593 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:21,594 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:21,594 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:21,595 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:21,595 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:21,605 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:21,605 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:21,609 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:21,609 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:21,609 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:21,610 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:21,701 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:21,702 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:21,724 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:21,724 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:21,725 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:22,618 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:22,618 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:22,638 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:22,638 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:22,638 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:22,716 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:22,716 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:22,750 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:22,750 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:22,750 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:22,751 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:22,760 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:22,761 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:22,761 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:22,761 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:22,770 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:22,770 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:22,770 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:22,771 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:22,771 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:23,852 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:23,852 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:23,890 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:23,891 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:23,891 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:28,254 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:28,254 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:28,334 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:28,335 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:28,335 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:28,335 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:28,357 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:28,357 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:28,357 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:28,357 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:28,372 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:28,373 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:28,373 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:28,373 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:28,383 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:28,383 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:28,383 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:28,383 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:28,393 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:28,393 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:28,394 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:28,394 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:28,403 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: resume
+2021-04-24 05:24:28,403 INFO    HandlerThread:10575 [handler.py:handle_request_resume():509] starting system metrics thread
+2021-04-24 05:24:28,404 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:28,404 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:28,406 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:28,406 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:28,407 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:28,407 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:31,880 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: status
+2021-04-24 05:24:31,880 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:31,881 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: status
+2021-04-24 05:24:32,697 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: pause
+2021-04-24 05:24:32,697 INFO    HandlerThread:10575 [handler.py:handle_request_pause():514] stopping system metrics thread
+2021-04-24 05:24:32,741 DEBUG   SenderThread:10575 [sender.py:send():160] send: stats
+2021-04-24 05:24:46,941 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: status
+2021-04-24 05:24:46,941 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:46,942 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: status
+2021-04-24 05:24:50,292 WARNING MainThread:10575 [internal.py:wandb_internal():146] Internal process interrupt: 1
+2021-04-24 05:24:50,400 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: poll_exit
+2021-04-24 05:24:50,400 DEBUG   SenderThread:10575 [sender.py:send():160] send: telemetry
+2021-04-24 05:24:50,457 DEBUG   SenderThread:10575 [sender.py:send():160] send: exit
+2021-04-24 05:24:50,457 INFO    SenderThread:10575 [sender.py:send_exit():238] handling exit code: 0
+2021-04-24 05:24:50,457 INFO    SenderThread:10575 [sender.py:send_exit():246] send defer
+2021-04-24 05:24:50,457 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:50,457 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: poll_exit
+2021-04-24 05:24:50,458 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: defer
+2021-04-24 05:24:50,458 INFO    HandlerThread:10575 [handler.py:handle_request_defer():134] handle defer: 0
+2021-04-24 05:24:50,458 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:50,458 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: defer
+2021-04-24 05:24:50,458 INFO    SenderThread:10575 [sender.py:send_request_defer():255] handle sender defer: 0
+2021-04-24 05:24:50,458 INFO    SenderThread:10575 [sender.py:send_request_defer():291] send defer: 1
+2021-04-24 05:24:50,459 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: defer
+2021-04-24 05:24:50,459 INFO    HandlerThread:10575 [handler.py:handle_request_defer():134] handle defer: 1
+2021-04-24 05:24:50,459 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:50,459 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: defer
+2021-04-24 05:24:50,459 INFO    SenderThread:10575 [sender.py:send_request_defer():255] handle sender defer: 1
+2021-04-24 05:24:50,459 INFO    SenderThread:10575 [sender.py:send_request_defer():291] send defer: 2
+2021-04-24 05:24:50,459 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: defer
+2021-04-24 05:24:50,459 INFO    HandlerThread:10575 [handler.py:handle_request_defer():134] handle defer: 2
+2021-04-24 05:24:50,459 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:50,459 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: defer
+2021-04-24 05:24:50,459 INFO    SenderThread:10575 [sender.py:send_request_defer():255] handle sender defer: 2
+2021-04-24 05:24:50,459 INFO    SenderThread:10575 [sender.py:send_request_defer():291] send defer: 3
+2021-04-24 05:24:50,460 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: defer
+2021-04-24 05:24:50,460 INFO    HandlerThread:10575 [handler.py:handle_request_defer():134] handle defer: 3
+2021-04-24 05:24:50,460 DEBUG   SenderThread:10575 [sender.py:send():160] send: summary
+2021-04-24 05:24:50,460 INFO    SenderThread:10575 [sender.py:_save_file():781] saving file wandb-summary.json with policy end
+2021-04-24 05:24:50,460 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:50,460 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: defer
+2021-04-24 05:24:50,461 INFO    SenderThread:10575 [sender.py:send_request_defer():255] handle sender defer: 3
+2021-04-24 05:24:50,461 INFO    SenderThread:10575 [sender.py:send_request_defer():291] send defer: 4
+2021-04-24 05:24:50,461 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: defer
+2021-04-24 05:24:50,461 INFO    HandlerThread:10575 [handler.py:handle_request_defer():134] handle defer: 4
+2021-04-24 05:24:50,461 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:50,461 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: defer
+2021-04-24 05:24:50,461 INFO    SenderThread:10575 [sender.py:send_request_defer():255] handle sender defer: 4
+2021-04-24 05:24:50,563 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: poll_exit
+2021-04-24 05:24:50,962 INFO    SenderThread:10575 [sender.py:send_request_defer():291] send defer: 5
+2021-04-24 05:24:50,963 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:50,963 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: poll_exit
+2021-04-24 05:24:50,967 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: defer
+2021-04-24 05:24:50,967 INFO    HandlerThread:10575 [handler.py:handle_request_defer():134] handle defer: 5
+2021-04-24 05:24:50,970 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:50,970 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: defer
+2021-04-24 05:24:50,970 INFO    SenderThread:10575 [sender.py:send_request_defer():255] handle sender defer: 5
+2021-04-24 05:24:50,970 INFO    SenderThread:10575 [sender.py:send_request_defer():291] send defer: 6
+2021-04-24 05:24:50,974 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: defer
+2021-04-24 05:24:50,974 INFO    HandlerThread:10575 [handler.py:handle_request_defer():134] handle defer: 6
+2021-04-24 05:24:50,974 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:50,975 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: defer
+2021-04-24 05:24:50,975 INFO    SenderThread:10575 [sender.py:send_request_defer():255] handle sender defer: 6
+2021-04-24 05:24:51,036 INFO    SenderThread:10575 [sender.py:send_request_defer():291] send defer: 7
+2021-04-24 05:24:51,036 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: defer
+2021-04-24 05:24:51,036 INFO    HandlerThread:10575 [handler.py:handle_request_defer():134] handle defer: 7
+2021-04-24 05:24:51,037 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:51,037 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: defer
+2021-04-24 05:24:51,037 INFO    SenderThread:10575 [sender.py:send_request_defer():255] handle sender defer: 7
+2021-04-24 05:24:51,037 INFO    SenderThread:10575 [sender.py:send_request_defer():291] send defer: 8
+2021-04-24 05:24:51,037 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: defer
+2021-04-24 05:24:51,038 INFO    HandlerThread:10575 [handler.py:handle_request_defer():134] handle defer: 8
+2021-04-24 05:24:51,038 DEBUG   SenderThread:10575 [sender.py:send():160] send: final
+2021-04-24 05:24:51,038 DEBUG   SenderThread:10575 [sender.py:send():160] send: footer
+2021-04-24 05:24:51,038 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:51,038 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: defer
+2021-04-24 05:24:51,038 INFO    SenderThread:10575 [sender.py:send_request_defer():255] handle sender defer: 8
+2021-04-24 05:24:51,065 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: poll_exit
+2021-04-24 05:24:51,065 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:51,065 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: poll_exit
+2021-04-24 05:24:51,168 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: poll_exit
+2021-04-24 05:24:51,168 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:51,168 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: poll_exit
+2021-04-24 05:24:51,270 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: poll_exit
+2021-04-24 05:24:51,270 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:51,270 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: poll_exit
+2021-04-24 05:24:51,372 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: poll_exit
+2021-04-24 05:24:51,372 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:51,372 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: poll_exit
+2021-04-24 05:24:51,474 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: poll_exit
+2021-04-24 05:24:51,474 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:51,476 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: poll_exit
+2021-04-24 05:24:51,578 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: poll_exit
+2021-04-24 05:24:51,578 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:51,578 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: poll_exit
+2021-04-24 05:24:51,680 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: poll_exit
+2021-04-24 05:24:51,680 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:51,680 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: poll_exit
+2021-04-24 05:24:51,782 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: poll_exit
+2021-04-24 05:24:51,782 DEBUG   SenderThread:10575 [sender.py:send():160] send: request
+2021-04-24 05:24:51,783 DEBUG   SenderThread:10575 [sender.py:send_request():169] send_request: poll_exit
+2021-04-24 05:24:51,784 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: get_summary
+2021-04-24 05:24:51,785 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: sampled_history
+2021-04-24 05:24:51,786 DEBUG   HandlerThread:10575 [handler.py:handle_request():120] handle_request: shutdown
+2021-04-24 05:24:51,786 INFO    HandlerThread:10575 [handler.py:finish():624] shutting down handler
+2021-04-24 05:24:52,038 INFO    WriterThread:10575 [datastore.py:close():258] close: /home/arora/kaggle/shopee/nbs/wandb/run-20210424_052415-46fcy8lb/run-46fcy8lb.wandb
+2021-04-24 05:24:52,783 INFO    SenderThread:10575 [sender.py:finish():884] shutting down sender
+2021-04-24 05:24:52,784 INFO    MainThread:10575 [internal.py:handle_exit():78] Internal process exited

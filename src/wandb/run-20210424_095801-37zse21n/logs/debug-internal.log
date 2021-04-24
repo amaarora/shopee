@@ -1,0 +1,32 @@
+2021-04-24 09:58:01,853 INFO    MainThread:21745 [internal.py:wandb_internal():91] W&B internal server running at pid: 21745, started at: 2021-04-24 09:58:01.853614
+2021-04-24 09:58:01,855 INFO    WriterThread:21745 [datastore.py:open_for_write():77] open: /home/arora/kaggle/shopee/src/wandb/run-20210424_095801-37zse21n/run-37zse21n.wandb
+2021-04-24 09:58:01,856 DEBUG   HandlerThread:21745 [handler.py:handle_request():120] handle_request: check_version
+2021-04-24 09:58:01,857 DEBUG   SenderThread:21745 [sender.py:send():160] send: header
+2021-04-24 09:58:01,857 DEBUG   SenderThread:21745 [sender.py:send():160] send: request
+2021-04-24 09:58:01,857 DEBUG   SenderThread:21745 [sender.py:send_request():169] send_request: check_version
+2021-04-24 09:58:01,921 DEBUG   SenderThread:21745 [sender.py:send():160] send: run
+2021-04-24 09:58:01,922 DEBUG   SenderThread:21745 [git.py:repo():33] git repository is invalid
+2021-04-24 09:58:01,974 INFO    SenderThread:21745 [sender.py:_start_run_threads():654] run started: 37zse21n with start time 1619258281
+2021-04-24 09:58:01,974 DEBUG   SenderThread:21745 [sender.py:send():160] send: summary
+2021-04-24 09:58:01,974 INFO    SenderThread:21745 [sender.py:_save_file():781] saving file wandb-summary.json with policy end
+2021-04-24 09:58:01,975 DEBUG   HandlerThread:21745 [handler.py:handle_request():120] handle_request: run_start
+2021-04-24 09:58:01,978 DEBUG   HandlerThread:21745 [meta.py:__init__():39] meta init
+2021-04-24 09:58:01,979 DEBUG   HandlerThread:21745 [meta.py:__init__():53] meta init done
+2021-04-24 09:58:01,979 DEBUG   HandlerThread:21745 [meta.py:probe():210] probe
+2021-04-24 09:58:01,985 DEBUG   HandlerThread:21745 [git.py:repo():33] git repository is invalid
+2021-04-24 09:58:01,985 DEBUG   HandlerThread:21745 [meta.py:_save_pip():57] save pip
+2021-04-24 09:58:01,985 DEBUG   HandlerThread:21745 [meta.py:_save_pip():71] save pip done
+2021-04-24 09:58:01,985 DEBUG   HandlerThread:21745 [meta.py:_save_conda():78] save conda
+2021-04-24 09:58:05,525 DEBUG   HandlerThread:21745 [meta.py:_save_conda():86] save conda done
+2021-04-24 09:58:05,525 DEBUG   HandlerThread:21745 [meta.py:probe():252] probe done
+2021-04-24 09:58:05,528 DEBUG   SenderThread:21745 [sender.py:send():160] send: files
+2021-04-24 09:58:05,528 INFO    SenderThread:21745 [sender.py:_save_file():781] saving file wandb-metadata.json with policy now
+2021-04-24 09:58:05,532 DEBUG   HandlerThread:21745 [handler.py:handle_request():120] handle_request: status
+2021-04-24 09:58:05,533 DEBUG   SenderThread:21745 [sender.py:send():160] send: request
+2021-04-24 09:58:05,533 DEBUG   SenderThread:21745 [sender.py:send_request():169] send_request: status
+2021-04-24 09:58:10,865 WARNING MainThread:21745 [internal.py:is_dead():344] Internal process exiting, parent pid 21622 disappeared
+2021-04-24 09:58:10,865 ERROR   MainThread:21745 [internal.py:wandb_internal():142] Internal process shutdown.
+2021-04-24 09:58:11,530 INFO    WriterThread:21745 [datastore.py:close():258] close: /home/arora/kaggle/shopee/src/wandb/run-20210424_095801-37zse21n/run-37zse21n.wandb
+2021-04-24 09:58:11,540 INFO    HandlerThread:21745 [handler.py:finish():624] shutting down handler
+2021-04-24 09:58:11,565 INFO    SenderThread:21745 [sender.py:finish():884] shutting down sender
+2021-04-24 09:58:12,510 INFO    MainThread:21745 [internal.py:handle_exit():78] Internal process exited

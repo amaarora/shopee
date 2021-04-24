@@ -1,0 +1,6 @@
+2021-04-24 09:57:16,735 INFO    MainThread:21030 [internal.py:wandb_internal():91] W&B internal server running at pid: 21030, started at: 2021-04-24 09:57:16.735582
+2021-04-24 09:57:16,737 DEBUG   HandlerThread:21030 [handler.py:handle_request():120] handle_request: check_version
+2021-04-24 09:57:16,737 INFO    WriterThread:21030 [datastore.py:open_for_write():77] open: /home/arora/kaggle/shopee/src/wandb/run-20210424_095716-5chvh08g/run-5chvh08g.wandb
+2021-04-24 09:57:16,739 DEBUG   SenderThread:21030 [sender.py:send():160] send: header
+2021-04-24 09:57:16,739 DEBUG   SenderThread:21030 [sender.py:send():160] send: request
+2021-04-24 09:57:16,739 DEBUG   SenderThread:21030 [sender.py:send_request():169] send_request: check_version
