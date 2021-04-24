@@ -19,14 +19,14 @@ from tqdm import tqdm
 logging.getLogger().setLevel(logging.INFO)
 
 
-def train_fn(model, data_loader, optimizer, scheduler, i):
+def train_fn(model, data_loader, optimizer, scheduler, i, device_ids):
     model.train()
     fin_loss = 0.0
     tk = tqdm(data_loader, desc="Epoch" + " [TRAIN] " + str(i + 1))
 
     for t, data in enumerate(tk):
         for k, v in data.items():
-            data[k] = v.to(Config["DEVICE"])
+            data[k] = v.to(device_ids[0])
         optimizer.zero_grad()
         out = model(**data)
         loss = nn.CrossEntropyLoss()(out, data["label"])
@@ -63,7 +63,16 @@ def eval_fn(model, data_loader, i):
         return fin_loss / len(data_loader)
 
 
-def train():
+def train(local_world_size, local_rank):
+    # setup devices for this process. For local_world_size = 2, num_gpus = 8,
+    # rank 1 uses GPUs [0, 1, 2, 3] and
+    # rank 2 uses GPUs [4, 5, 6, 7].
+    n = torch.cuda.device_count() // local_world_size
+    device_ids = list(range(local_rank * n, (local_rank + 1) * n))
+    print(
+        f"[{os.getpid()}] rank = {dist.get_rank()}, "
+        + f"world_size = {dist.get_world_size()}, n = {n}, device_ids = {device_ids}"
+    )
     # train data
     labelencoder = LabelEncoder()
     train_df = pd.read_csv(Config["TRAIN_CSV_PATH"])
@@ -85,17 +94,44 @@ def train():
     # model
     model = Shopee_Model(Config["MODEL"], num_class=NUM_CLASS, pretrained=True)
     model.backbone.reset_classifier(0)
-    model = model.to(Config["DEVICE"])
+    model = model.cuda(device_ids[0])
+    ddp_model = DDP(model, device_ids)
 
     # optimizer & scheduler
     optimizer = torch.optim.Adam(
-        model.parameters(), lr=Config["SCHEDULER_PARAMS"]["lr_start"]
+        ddp_model.parameters(), lr=Config["SCHEDULER_PARAMS"]["lr_start"]
     )
     scheduler = ShopeeScheduler(optimizer, **Config["SCHEDULER_PARAMS"])
 
     for epoch in range(Config["EPOCHS"]):
-        avg_loss_train = train_fn(model, train_dataloader, optimizer, scheduler, epoch)
+        avg_loss_train = train_fn(
+            ddp_model, train_dataloader, optimizer, scheduler, epoch, device_ids
+        )
+
+
+def spmd_main(local_world_size, local_rank):
+    # These are the parameters used to initialize the process group
+    env_dict = {
+        key: os.environ[key]
+        for key in ("MASTER_ADDR", "MASTER_PORT", "RANK", "WORLD_SIZE")
+    }
+    print(f"[{os.getpid()}] Initializing process group with: {env_dict}")
+    dist.init_process_group(backend="nccl")
+    print(
+        f"[{os.getpid()}] world_size = {dist.get_world_size()}, "
+        + f"rank = {dist.get_rank()}, backend={dist.get_backend()}"
+    )
+
+    train(local_world_size, local_rank)
+
+    # Tear down the process group
+    dist.destroy_process_group()
 
 
 if __name__ == "__main__":
-    train()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--local_rank", type=int, default=0)
+    parser.add_argument("--local_world_size", type=int, default=1)
+    args = parser.parse_args()
+
+    spmd_main(args.local_world_size, args.local_rank)
