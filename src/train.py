@@ -15,22 +15,20 @@ import torch.multiprocessing as mp
 import argparse
 import pandas as pd
 from tqdm import tqdm
-
+from accelerate import Accelerator
 logging.getLogger().setLevel(logging.INFO)
 
 
-def train_fn(model, data_loader, optimizer, scheduler, i, device_ids):
+def train_fn(model, data_loader, optimizer, scheduler, i, accelerator):
     model.train()
     fin_loss = 0.0
     tk = tqdm(data_loader, desc="Epoch" + " [TRAIN] " + str(i + 1))
 
     for t, data in enumerate(tk):
-        for k, v in data.items():
-            data[k] = v.to(device_ids[0])
         optimizer.zero_grad()
         out = model(**data)
         loss = nn.CrossEntropyLoss()(out, data["label"])
-        loss.backward()
+        accelerator.backward(loss)
         optimizer.step()
         fin_loss += loss.item()
 
@@ -63,16 +61,9 @@ def eval_fn(model, data_loader, i):
         return fin_loss / len(data_loader)
 
 
-def train(local_world_size, local_rank):
-    # setup devices for this process. For local_world_size = 2, num_gpus = 8,
-    # rank 1 uses GPUs [0, 1, 2, 3] and
-    # rank 2 uses GPUs [4, 5, 6, 7].
-    n = torch.cuda.device_count() // local_world_size
-    device_ids = list(range(local_rank * n, (local_rank + 1) * n))
-    print(
-        f"[{os.getpid()}] rank = {dist.get_rank()}, "
-        + f"world_size = {dist.get_world_size()}, n = {n}, device_ids = {device_ids}"
-    )
+def train():
+    # initialize accelerator
+    accelerator = Accelerator()
 
     # wandb init
     wandb.init(project="shopee", config=Config)
@@ -92,60 +83,29 @@ def train(local_world_size, local_rank):
         TRAIN_IMG_PATHS, TRAIN_LABELS, augmentations=Config["TRAIN_AUG"]
     )
 
-    sampler = None
-    sampler = torch.utils.data.distributed.DistributedSampler(train_dataset)
     train_dataloader = torch.utils.data.DataLoader(
-        train_dataset, batch_size=Config["BS"], sampler=sampler, shuffle=(sampler is None)
+        train_dataset, batch_size=Config["BS"]
     )
 
     # model
     model = Shopee_Model(Config["MODEL"], num_class=NUM_CLASS, pretrained=True)
     model.backbone.reset_classifier(0)
-    model = model.cuda(device_ids[0])
-    ddp_model = DDP(model, device_ids)
 
     # optimizer & scheduler
     optimizer = torch.optim.Adam(
-        ddp_model.parameters(), lr=Config["SCHEDULER_PARAMS"]["lr_start"]
+        model.parameters(), lr=Config["SCHEDULER_PARAMS"]["lr_start"]
     )
     scheduler = ShopeeScheduler(optimizer, **Config["SCHEDULER_PARAMS"])
 
-    for epoch in range(Config["EPOCHS"]):
-        if hasattr(train_dataloader.sampler, 'set_epoch'):
-            train_dataloader.sampler.set_epoch(epoch)
+    # prepare for DDP
+    model, optimizer, train_dataloader = accelerator.prepare(model, optimizer, train_dataloader)
 
+    for epoch in range(Config["EPOCHS"]):
         avg_loss_train, lr = train_fn(
-            ddp_model, train_dataloader, optimizer, scheduler, epoch, device_ids
+            model, train_dataloader, optimizer, scheduler, epoch, accelerator
         )
         wandb.log({'train_loss': avg_loss_train, 'epoch': epoch, 'lr': lr})
-        torch.save(
-            model.state_dict(), 
-            f"../data/{Config['MODEL']}_{Config['IMG_SIZE']}_{epoch}_{avg_loss_train}"
-            )
-
-def spmd_main(local_world_size, local_rank):
-    # These are the parameters used to initialize the process group
-    env_dict = {
-        key: os.environ[key]
-        for key in ("MASTER_ADDR", "MASTER_PORT", "RANK", "WORLD_SIZE")
-    }
-    print(f"[{os.getpid()}] Initializing process group with: {env_dict}")
-    dist.init_process_group(backend="nccl")
-    print(
-        f"[{os.getpid()}] world_size = {dist.get_world_size()}, "
-        + f"rank = {dist.get_rank()}, backend={dist.get_backend()}"
-    )
-
-    train(local_world_size, local_rank)
-
-    # Tear down the process group
-    dist.destroy_process_group()
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--local_rank", type=int, default=0)
-    parser.add_argument("--local_world_size", type=int, default=1)
-    args = parser.parse_args()
-
-    spmd_main(args.local_world_size, args.local_rank)
+    train()
